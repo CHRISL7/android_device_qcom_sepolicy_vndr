@@ -610,10 +610,6 @@
 # Microdump collector parameters
 /sys/module/microdump_collector/parameters/.*  u:object_r:vendor_sysfs_microdump:s0
 
-#Silent boot node
-/sys/power/pm_silentmode_kernel_state                   u:object_r:vendor_sysfs_power:s0
-/sys/power/pm_silentmode_hw_state                       u:object_r:vendor_sysfs_power:s0
-
 #EMAC
 /(vendor|system/vendor)/bin/emac_rps_settings\.sh        u:object_r:vendor_qti_init_shell_exec:s0
 /sys/devices/platform/soc/20000\.qcom,ethernet/net/eth0/queues/rx-[0-9]/rps_cpus u:object_r:vendor_sysfs_rx_config:s0
