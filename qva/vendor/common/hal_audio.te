@@ -51,3 +51,6 @@ binder_call(hal_audio_default,vendor_audio_hal_plugin_service)
 allow hal_audio_default carpowerpolicyd_service:service_manager find;
 binder_call(hal_audio_default, carpowerpolicyd)
 binder_call(carpowerpolicyd, hal_audio_default)
+
+# Allow audio hal to communicate with msm_lsm char dev
+allow hal_audio_default vendor_msm_lsm_cdev_device:chr_file rw_file_perms;
