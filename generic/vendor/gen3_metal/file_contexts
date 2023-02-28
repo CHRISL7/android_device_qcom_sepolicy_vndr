@@ -64,9 +64,6 @@
 #rawdump partition
 /dev/block/platform/soc/1d84000.ufshc/by-name/rawdump               u:object_r:vendor_rawdump_block_device:s0
 
-#vendor partition
-/vendor/bin/mdsprpcd                                                u:object_r:vendor_mdsprpcd_exec:s0
-
 # A/B partitions.
 /dev/block/platform/soc/1d84000.ufshc/by-name/abl_[ab]              u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/aop_[ab]              u:object_r:vendor_custom_ab_block_device:s0
