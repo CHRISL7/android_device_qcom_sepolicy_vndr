@@ -324,3 +324,4 @@
 /vendor_early_services/vendor/bin/early_chime                                 u:object_r:early_chime_exec:s0
 /dev/snd                                                                      u:object_r:audio_device:s0
 /dev/snd/controlC0                                                            u:object_r:audio_device:s0
+/vendor_early_services/vendor/bin/earlyVideo                                  u:object_r:vendor_earlyVideo_exec:s0
