@@ -114,7 +114,6 @@ genfscon sysfs /module/lpm_stats                                        u:object
 genfscon sysfs /devices/virtual/graphics/fb0                            u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/virtual/graphics/fb1                            u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/soc/8c0000.qcom,msm-cam                         u:object_r:vendor_sysfs_camera:s0
-genfscon sysfs /devices/platform/soc/aa00000.qcom,vidc/sku_version      u:object_r:vendor_sysfs_sku:s0
 genfscon sysfs /devices/soc0                                            u:object_r:vendor_sysfs_soc:s0
 genfscon sysfs /devices/soc0/soc_id                                     u:object_r:vendor_sysfs_public:s0
 genfscon sysfs /devices/system/soc/soc0/id                              u:object_r:vendor_sysfs_public:s0
@@ -143,6 +142,7 @@ genfscon sysfs /devices/platform/soc/5e00000.qcom,mdss_mdp/drm/card0/sde-crtc-1/
 genfscon sysfs /devices/platform/soc/5e00000.qcom,mdss_mdp/drm/card0/sde-crtc-2/retire_frame_event u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/platform/soc/a600000.ssusb/mode                 u:object_r:vendor_sysfs_usb_device:s0
 genfscon sysfs /devices/platform/soc/a800000.ssusb/mode                 u:object_r:vendor_sysfs_usb_device:s0
+genfscon sysfs /devices/platform/soc/a600000.ssusb/dynamic_disable      u:object_r:vendor_sysfs_usb_device:s0
 
 genfscon sysfs /devices/platform/hypervisor/hypervisor:qcom,gh-watchdog/wakeup_enable u:object_r:vendor_sysfs_wdog_device:s0
 
@@ -180,6 +180,9 @@ genfscon sysfs /power/mem_sleep u:object_r:vendor_sysfs_suspend:s0
 genfscon sysfs /kernel/boot_adsp/ssr                                   u:object_r:vendor_sysfs_adsp_ssr:s0
 genfscon sysfs /firmware/devicetree/base/soc  u:object_r:vendor_sysfs_devicetree_soc:s0
 
+genfscon sysfs /class/qcom-battery/soh        u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /class/qcom-battery/resistance u:object_r:vendor_sysfs_battery_supply:s0
+
 genfscon sysfs /module/rmnet_aps/parameters u:object_r:vendor_sysfs_rmnet:s0
 genfscon sysfs /module/rmnet_offload/parameters u:object_r:vendor_sysfs_rmnet:s0
 genfscon sysfs /module/rmnet_perf/parameters u:object_r:vendor_sysfs_rmnet:s0
@@ -187,3 +190,6 @@ genfscon sysfs /module/rmnet_perf_tether/parameters u:object_r:vendor_sysfs_rmne
 genfscon sysfs /module/rmnet_sch/parameters u:object_r:vendor_sysfs_rmnet:s0
 genfscon sysfs /module/rmnet_shs/parameters u:object_r:vendor_sysfs_rmnet:s0
 genfscon sysfs /module/rmnet_wlan/parameters u:object_r:vendor_sysfs_rmnet:s0
+
+genfscon sysfs /kernel/qts/primary/trusted_touch_enable u:object_r:vendor_sysfs_trusted_touch_enable:s0
+genfscon sysfs /kernel/qts/secondary/trusted_touch_enable u:object_r:vendor_sysfs_trusted_touch_enable:s0

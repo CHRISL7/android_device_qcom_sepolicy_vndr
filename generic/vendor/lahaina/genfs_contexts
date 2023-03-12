@@ -187,8 +187,6 @@ genfscon sysfs /devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:5/scs
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:6/scsi_generic  u:object_r:vendor_sysfs_scsi_target:s0
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:7/scsi_generic  u:object_r:vendor_sysfs_scsi_target:s0
 
-genfscon sysfs /devices/platform/soc/3d00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_model u:object_r:vendor_sysfs_kgsl_gpu_model:s0
-
 #wakeup sysfs nodes listed by SuspendSepolicyTests.sh
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-03/c440000.qcom,spmi:qcom,pm8350b@3:qcom,amoled/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pmk8350@0:pon_hlos@1300/wakeup u:object_r:sysfs_wakeup:s0
