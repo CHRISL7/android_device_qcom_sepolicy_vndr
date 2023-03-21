@@ -192,6 +192,4 @@ genfscon sysfs /kernel/silent_boot/pm_silentmode_hw_state         u:object_r:ven
 
 # wall
 genfscon sysfs /sys/devices/platform/power.0/power_supply      u:object_r:vendor_sysfs_power_supply:s0
-genfscon sysfs /sys/devices/platform/power.0/power_supply/Ac/*  u:object_r:vendor_sysfs_power_supply:s0
-genfscon sysfs /sys/devices/platform/power.0/power_supply/Ac/online  u:object_r:vendor_sysfs_power_supply:s0
-genfscon sysfs /sys/devices/platform/power.0/power_supply/Ac/type  u:object_r:vendor_sysfs_power_supply:s0
+genfscon sysfs /sys/devices/platform/power\.0/power_supply/Ac(/.*)?   u:object_r:vendor_sysfs_power_supply:s0
