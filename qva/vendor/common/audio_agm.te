@@ -33,20 +33,12 @@ type vendor_agmplay, domain;
 type vendor_agmplay_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(vendor_agmplay)
-r_dir_file(vendor_agmplay, proc)
-r_dir_file(vendor_agmplay, proc_asound)
 
-allow vendor_agmplay proc_asound:file r_file_perms;
-allow vendor_agmplay vendor_proc_audiod:file r_file_perms;
-allow vendor_agmplay audio_device:dir search;
-allow vendor_agmplay audio_device:chr_file rw_file_perms;
-allow vendor_agmplay vendor_acdb_loader_service_service:service_manager find;
-allow vendor_agmplay vendor_audio_hal_plugin_service_service:service_manager find;
-allow vendor_agmplay vendor_sysfs_kpi:file w_file_perms;
-get_prop(vendor_agmplay, hwservicemanager_prop);
-get_prop(vendor_agmplay, vendor_audio_prop);
-vndbinder_use(vendor_agmplay);
-binder_call(vendor_agmplay,vendor_audio_hal_plugin_service)
-binder_call(vendor_agmplay,hwservicemanager)
-binder_call(vendor_agmplay,vendor_acdb_loader_service)
+r_dir_file(vendor_agmplay, proc_asound)
 binder_call(vendor_agmplay, vendor_agmservice_qti)
+allow vendor_agmplay audio_device:dir r_dir_perms;
+allow vendor_agmplay audio_device:chr_file rw_file_perms;
+get_prop(vendor_agmplay, vendor_audio_prop)
+get_prop(vendor_agmplay, hwservicemanager_prop)
+hal_client_domain(vendor_agmplay, hal_audio)
+
