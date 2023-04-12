@@ -63,4 +63,4 @@ allow kernel system_linker_exec:file { relabelto };
 allow kernel vendor_early_services:lnk_file { relabelto };
 allow kernel vendor_init_early_test_exec:file { relabelto };
 allow kernel rootfs:lnk_file { relabelfrom };
-allow kernel vendor_init_exec:file { relabelto };
+allow kernel vendor_init_exec:file { relabelto read open };
