@@ -384,3 +384,10 @@
 
 # Power state of deep sleep
 /dev/power_state   u:object_r:vendor_power_state_device:s0
+
+# Hiber and hiber restore
+/vendor/bin/hiber.sh                        u:object_r:vendor_qti_hiber_exec:s0
+/vendor/bin/hiber_restore.sh                u:object_r:vendor_qti_hiber_restore_exec:s0
+
+#USB node which need context in case of multiple input ports
+/sys/devices/platform/soc/a4f8800.ssusb/a400000.dwc3/xhci-hcd.0.auto/usb1(/.*)/power/control  u:object_r:vendor_sysfs_usb_node:s0
