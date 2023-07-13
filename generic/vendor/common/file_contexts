@@ -648,6 +648,7 @@
 # power related path which need context
 /sys/power/resume                                                    u:object_r:vendor_sysfs_power:s0
 /sys/power/image_size                                                u:object_r:vendor_sysfs_power_image:s0
+/sys/power/disk                                                      u:object_r:vendor_sysfs_power:s0
 
 #Usb Device
 /sys/bus/platform/drivers/xhci-hcd/bind                 u:object_r:vendor_sysfs_usb_node:s0
