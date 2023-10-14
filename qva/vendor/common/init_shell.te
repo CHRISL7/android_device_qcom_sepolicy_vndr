@@ -25,9 +25,9 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-# Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
-# SPDX-License-Identifier: BSD-3-Clause-Clear
+#Changes from Qualcomm Innovation Center are provided under the following license:
+#Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+#SPDX-License-Identifier: BSD-3-Clause-Clear
 
 allow vendor_qti_init_shell vendor_sysfs_npu:file rw_file_perms;
 set_prop(vendor_qti_init_shell, vendor_mdm_helper_prop)
@@ -66,6 +66,9 @@ allow vendor_qti_init_shell {
     vendor_sysfs_sd
 }:file w_file_perms;
 
+# Allow init shell to access /sys/class/kgsl/kgsl/ nodes
+allow vendor_qti_init_shell vendor_sysfs_kgsl:file w_file_perms;
+
 # Allow init shell to access vendor pasr properties
 set_prop(vendor_qti_init_shell, vendor_pasr_prop)
 set_prop(vendor_qti_init_shell, ctl_start_prop)
@@ -76,12 +79,3 @@ allow vendor_qti_init_shell nfc_device:chr_file { getattr };
 set_prop(vendor_qti_init_shell, vendor_ese_strongbox_prop)
 
 allow vendor_qti_init_shell vendor_sysfs_usb_device:file w_file_perms;
-allow vendor_qti_init_shell vendor_proc_swappiness:file w_file_perms;
-
-get_prop(vendor_qti_init_shell, vendor_board_suffix_prop)
-allow vendor_qti_init_shell {
-    vendor_sysfs_mmc_host
-    sysfs_dm
-}:file w_file_perms;
-
-set_prop(vendor_qti_init_shell, vendor_soc_model_prop);

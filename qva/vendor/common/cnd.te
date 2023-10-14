@@ -26,7 +26,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 set_prop(vendor_cnd, vendor_cnd_vendor_prop)
@@ -108,5 +108,3 @@ userdebug_or_eng(`
   binder_call(vendor_cnd, radio)
   diag_use(vendor_cnd)
 ')
-
-

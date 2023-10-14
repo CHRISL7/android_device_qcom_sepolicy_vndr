@@ -26,7 +26,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 hal_server_domain(hal_bluetooth_default, vendor_hal_fm)
@@ -43,3 +43,6 @@ unix_socket_connect(hal_bluetooth_default, vendor_ssgtzd, vendor_ssgtzd)
 hal_attribute_service(hal_bluetooth, vendor_hal_bttpi_service)
 binder_call(hal_bluetooth, servicemanager)
 hal_client_domain(hal_bluetooth_default, hal_vehicle)
+
+# for Xpan Provider Service
+hal_attribute_service(hal_bluetooth, vendor_hal_xpanprovider_service)

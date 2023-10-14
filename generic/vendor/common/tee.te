@@ -24,12 +24,7 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-# Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
-# SPDX-License-Identifier: BSD-3-Clause-Clear
-
-allow tee self:capability { chown setgid setuid sys_admin sys_rawio dac_read_search };
+allow tee self:capability { chown setgid setuid sys_admin sys_rawio };
 
 allow tee device:dir r_dir_perms;
 
@@ -57,16 +52,12 @@ allow tee vendor_time_daemon:unix_stream_socket connectto;
 allow tee vendor_data_tzstorage_file:dir create_dir_perms;
 allow tee vendor_data_tzstorage_file:file create_file_perms;
 
-#secureUI
-hal_client_domain(tee, vendor_hal_tui_comm);
 hal_client_domain(tee, vendor_hal_qdutils_disp);
 hal_client_domain(tee, hal_graphics_allocator);
 vndbinder_use(tee);
 allow tee vendor_qdisplay_service:service_manager find;
 hal_client_domain(tee, hal_graphics_composer);
 allow tee vendor_sysfs_sectouch:file rw_file_perms;
-allow tee vendor_tui_data_file:file rw_file_perms;
-allow tee vendor_tui_data_file:dir r_dir_perms;
 allow tee graphics_device:chr_file rw_file_perms;
 
 #OPS Listener

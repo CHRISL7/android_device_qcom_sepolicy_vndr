@@ -1,33 +1,6 @@
-# Copyright (c) 2016-2020, The Linux Foundation. All rights reserved.
+#Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+#SPDX-License-Identifier: BSD-3-Clause-Clear
 #
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are
-# met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above
-#       copyright notice, this list of conditions and the following
-#       disclaimer in the documentation and/or other materials provided
-#       with the distribution.
-#     * Neither the name of The Linux Foundation nor the names of its
-#       contributors may be used to endorse or promote products derived
-#       from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-# Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
-# SPDX-License-Identifier: BSD-3-Clause-Clear
 
 ###################################
 # Dev block nodes
@@ -60,7 +33,6 @@
 /dev/block/platform/soc/1d84000.ufshc/by-name/mdm1m9kefs3           u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/mdmddr                u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/super                 u:object_r:super_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/swap              u:object_r:vendor_custom_ab_block_device:s0
 
 #rawdump partition
 /dev/block/platform/soc/1d84000.ufshc/by-name/rawdump               u:object_r:vendor_rawdump_block_device:s0
@@ -103,7 +75,6 @@
 /dev/block/platform/soc/1d84000.ufshc/by-name/multiimgoem_[ab]      u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/init_boot_[ab]        u:object_r:boot_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/vendor_dlkm_[ab]      u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/swap_[ab]              u:object_r:vendor_custom_ab_block_device:s0
 
 # Block device holding the GPT, where the A/B attributes are stored.
 /dev/block/platform/soc/1d84000.ufshc/sd[ade]                       u:object_r:vendor_gpt_block_device:s0
@@ -323,7 +294,5 @@
 /vendor_early_services/system/bin/bootstrap/linker(64)?                       u:object_r:system_linker_exec:s0
 /vendor_early_services/vendor/firmware_mnt                                    u:object_r:firmware_file:s0
 /vendor_early_services/vendor/firmware_mnt(/.*)?                              u:object_r:firmware_file:s0
-/vendor_early_services/vendor/bin/early_chime                                 u:object_r:early_chime_exec:s0
 /dev/snd                                                                      u:object_r:audio_device:s0
 /dev/snd/controlC0                                                            u:object_r:audio_device:s0
-/vendor_early_services/vendor/bin/earlyVideo                                  u:object_r:vendor_earlyVideo_exec:s0

@@ -24,12 +24,9 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-# Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
-# SPDX-License-Identifier: BSD-3-Clause-Clear
 
 # generic/vendor/common/location.te - sepolicy rules for generic location module - loc_launcher
+
 # loc_launcher service
 # which launches various other services supporting GPS & Wifi-RTT (LOWI) vendor_location
 type vendor_location, domain;
@@ -67,22 +64,3 @@ userdebug_or_eng(`
 ')
 
 dontaudit vendor_location kernel:system module_request;
-
-# lowi-server
-allow vendor_location self:netlink_generic_socket create_socket_perms_no_ioctl;
-allow vendor_location self:netlink_socket create_socket_perms_no_ioctl;
-allowxperm vendor_location self:udp_socket ioctl lowi_server_ioctls;
-allow vendor_location hal_wifi:unix_stream_socket { read write };
-
-# /data/vendor/wifi
-allow vendor_location vendor_wifi_vendor_data_file:dir search;
-
-# /data/vendor/wifi/wpa
-allow vendor_location wpa_data_file:dir rw_dir_perms;
-allow vendor_location wpa_data_file:sock_file create_file_perms;
-allow vendor_location hal_wifi_supplicant_default:unix_dgram_socket sendto;
-
-# /dev/socket/wifihal
-allow vendor_location vendor_wifihal_socket:dir search;
-unix_socket_send(vendor_location, vendor_wifihal,  hal_wifi_default);
-

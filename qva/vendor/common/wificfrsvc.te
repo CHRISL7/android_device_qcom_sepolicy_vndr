@@ -1,4 +1,4 @@
-# Copyright (c) 2018, The Linux Foundation. All rights reserved.
+# Copyright (c) 2021, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -24,12 +24,9 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-# Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
-# SPDX-License-Identifier: BSD-3-Clause-Clear
 
 # This domain is for wificfr hal service
+
 type wificfrsvc, domain;
 type wificfrsvc_exec, exec_type, vendor_file_type, file_type;
 
@@ -40,8 +37,10 @@ hal_server_domain(wificfrsvc, hal_wificfr)
 binder_call(hal_wificfr_client, hal_wificfr_server)
 binder_call(hal_wificfr_server, hal_wificfr_client)
 
-#register hal service and allow hal clients to find the service
-hal_attribute_hwservice(hal_wificfr, hal_wificfr_hwservice)
+#register aidl service and allow aidl clients to find the service
+hal_attribute_service(hal_wificfr, hal_wificfr_service)
+
+binder_call(wificfrsvc, servicemanager)
 
 allow hal_wificfr self:netlink_generic_socket create_socket_perms_no_ioctl;
 

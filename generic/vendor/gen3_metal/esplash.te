@@ -33,4 +33,6 @@
 # early Splash Service
 allow vendor_esplash vendor_early_services:dir rw_dir_perms;
 allow vendor_esplash vendor_early_services:file rw_file_perms;
-allow vendor_esplash kmsg_device:chr_file rw_file_perms;
+userdebug_or_eng(`
+  allow vendor_esplash kmsg_device:chr_file rw_file_perms;
+')

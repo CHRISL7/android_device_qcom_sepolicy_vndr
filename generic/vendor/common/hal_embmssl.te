@@ -1,4 +1,4 @@
-# Copyright (c) 2019, The Linux Foundation. All rights reserved.
+# Copyright (c) 2019-2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -24,10 +24,6 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-# Changes from Qualcomm Innovation Center are provided under the following license:
-# Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
-# SPDX-License-Identifier: BSD-3-Clause-Clear
 
 type vendor_hal_embmssl_qti, domain;
 type vendor_hal_embmssl_qti_exec, exec_type, vendor_file_type, file_type;
@@ -39,10 +35,9 @@ hal_server_domain(vendor_hal_embmssl_qti, vendor_hal_embmssl)
 binder_call(vendor_hal_embmssl_client, vendor_hal_embmssl_server)
 binder_call(vendor_hal_embmssl_server, vendor_hal_embmssl_client)
 
-# Add hwservice related rules
-add_hwservice(vendor_hal_embmssl_server, vendor_hal_embmssl_hwservice)
-
-allow vendor_hal_embmssl_client vendor_hal_embmssl_hwservice:hwservice_manager find;
+# Add (aidl) service related rules
+binder_use(vendor_hal_embmssl_qti)
+hal_attribute_service(vendor_hal_embmssl, vendor_hal_embmsslaidl_service)
 
 allow vendor_hal_embmssl_qti self:qipcrtr_socket create_socket_perms_no_ioctl;
 allow vendor_hal_embmssl_qti vendor_time_daemon:unix_stream_socket connectto;

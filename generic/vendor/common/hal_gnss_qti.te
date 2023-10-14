@@ -24,10 +24,11 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
+
 # Changes from Qualcomm Innovation Center are provided under the following license:
 # Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
+# generic/vendor/common/hal_gnss_qti.te - generic sepolicy rules for vendor_location hidl
 
 type vendor_hal_gnss_qti, domain;
 hal_server_domain(vendor_hal_gnss_qti, hal_gnss)
@@ -65,6 +66,13 @@ hal_client_domain(vendor_hal_gnss_qti, hal_health)
 # allows Gnss HAL to access ssgtzd socket
 unix_socket_connect(vendor_hal_gnss_qti, vendor_ssgtzd, vendor_ssgtzd)
 
+# read boot status
+get_prop(vendor_hal_gnss_qti, boot_status_prop)
+
+#Allow Gnss HAL to access ril socket
+allow vendor_hal_gnss_qti vendor_rild_socket:dir search;
+unix_socket_connect(vendor_hal_gnss_qti, vendor_rild, rild)
+
 # Most HALs are not allowed to use network sockets. QTI library
 # libqdi is used across multiple processes which are clients of
 # netmgrd including the GNSS HAL. libqdi first attempts to get the network
@@ -78,7 +86,9 @@ unix_socket_connect(vendor_hal_gnss_qti, vendor_ssgtzd, vendor_ssgtzd)
 # sockets.
 dontaudit vendor_hal_gnss_qti self:udp_socket create;
 
-# Allow Gnss HAL to register callback with car power policy 
+set_prop(vendor_hal_gnss_qti, vendor_gnss_fw_state)
+
+# Allow Gnss HAL to register callback with car power policy
 carpowerpolicy_callback_domain(vendor_hal_gnss_qti)
 allow vendor_hal_gnss_qti carpowerpolicyd_service:service_manager find;
 
